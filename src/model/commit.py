@@ -11,7 +11,7 @@ class Commit(BaseModel):
         committer_username (str): The GitHub username of the committer.
         committer_name (str): The name of the committer.
         committer_email (str): The email address of the committer.
-        commit_date (datetime): The datetime when the commit was made.
+        commit_ts (datetime): The datetime when the commit was made.
         pipeline_run_date (str): The pipeline run date associated with this commit.
     """
 
@@ -20,7 +20,7 @@ class Commit(BaseModel):
     committer_username:str
     committer_name:str
     committer_email:str
-    commit_date: datetime
+    commit_ts: datetime
 
     pipeline_run_date: str
 
@@ -30,7 +30,7 @@ class Commit(BaseModel):
             raise ValueError("SHA must not be empty")
         return v
 
-    @field_validator('commit_date')
+    @field_validator('commit_ts')
     def commit_date_cannot_be_future(cls, v):
         if v > datetime.utcnow():
             raise ValueError("Commit date cannot be in the future")

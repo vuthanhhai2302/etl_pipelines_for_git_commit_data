@@ -32,7 +32,7 @@ class FileStorageToModelAdapter:
                         committer_username = author_data.get("login", "None"),
                         committer_name = committer.get("name"),
                         committer_email = committer.get("email"),
-                        commit_date = datetime.strptime(committer.get("date"), "%Y-%m-%dT%H:%M:%SZ"),
+                        commit_ts = datetime.strptime(committer.get("date"), "%Y-%m-%dT%H:%M:%SZ"),
                         pipeline_run_date=pipeline_run_date
                     )
                     commit_staging_data.append(commit)
