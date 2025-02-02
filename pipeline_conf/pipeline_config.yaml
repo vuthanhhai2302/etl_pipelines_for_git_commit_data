@@ -1,0 +1,16 @@
+git_repo:
+  owner: "apache"
+  repo_name: "airflow"
+
+database:
+  host: "localhost"
+  port: "1602"
+  user: "postgres"
+  password: "1234"
+  dbname: "postgres"
+
+table:
+  name: commit_staging
+
+local_storage:
+  path: "data/commits"
