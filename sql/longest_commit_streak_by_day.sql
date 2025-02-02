@@ -1,8 +1,8 @@
 WITH ranked_commit_by_date AS (
   SELECT
     committer_id,
-    commit_date::DATE AS commit_date,
-    ROW_NUMBER() OVER (PARTITION BY committer_id ORDER BY commit_date::DATE) AS rn
+    commit_ts::DATE AS commit_date,
+    ROW_NUMBER() OVER (PARTITION BY committer_id ORDER BY commit_ts::DATE) AS rn
   FROM commit_staging
 ),
 commit_streak AS (
