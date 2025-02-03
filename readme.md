@@ -8,6 +8,7 @@ The code will run using a main script and all the processing function will be wr
 This ETL pipeline extracts commit data from the GitHub API, saves the raw data to file storage partitioned by month, converts the raw data into a list of commit models, and then loads the validated data into a PostgreSQL database. The process also includes post-load validations to ensure data integrity.
 
 ## Prerequisites
+Install the neccessary library to your venv from requirements.txt
 
 - **Python 3.9+**
 - Environment variables set (e.g., `GITHUB_TOKEN`)
@@ -18,7 +19,7 @@ This ETL pipeline extracts commit data from the GitHub API, saves the raw data t
   - `pydantic`
   - Other standard libraries such as `datetime`, `os`, `logging`
 
-## Components
+## Pipeline Components
 
 - **ConfigLoader:** Loads pipeline configuration from a YAML file.
 - **GitCommitIngestor:** Fetches commit data asynchronously from the GitHub API and aggregates it by month.
@@ -51,4 +52,5 @@ Notes: the code will ingest and load to local storage and then load to destinati
 7. **Cleanup:**  
    The PostgreSQL connection is closed and a success log message is produced if all validations pass.
 
-
+## SQL for queries
+you can find the queries from folder sql.
